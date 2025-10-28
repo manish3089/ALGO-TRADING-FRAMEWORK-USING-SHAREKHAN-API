@@ -41,26 +41,7 @@ README.md # Project documentation
    ```bash
    git clone https://github.com/manish3089/ALGO-TRADING-FRAMEWORK-USING-SHAREKHAN-API
    cd ALGO-TRADING-FRAMEWORK-USING-SHAREKHAN-API
-   ```
-   ```python -m venv venv
-      source venv/bin/activate  # For Linux/Mac
-      venv\Scripts\activate     # For Windows
-   ```
-   ```pip install -r requirements.txt
-   ```
 
-   ```python token_generate.py
-   ```
-
-   ```python fetch_live_data.py
-   ```
-
-   ```jupyter notebook scripmaster_backtest.ipynb
-   ```
-
-   ```python demo.py
-   ```
-   
 ⚠️ Disclaimer
 
 This project is for educational and research purposes only.
