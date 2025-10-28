@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharekhan Token Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .hidden {
+            display: none;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sharekhan Token Generator</h1>
+        
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+        
+        <div class="info">
+            <strong>Instructions:</strong><br>
+            {% if auth_code %}
+                Step 2: Complete token generation by entering your credentials below.
+            {% else %}
+                Step 1: Enter your App ID and click "Start OAuth Login" to authenticate with Sharekhan.<br>
+                Step 2: After authentication, you'll return here to complete token generation.
+            {% endif %}
+        </div>
+        
+        {% if auth_code %}
+            <!-- Step 2: Complete token generation (after OAuth callback) -->
+            <form method="post" action="/generate_token">
+                <div class="form-group">
+                    <label for="app_id">App ID:</label>
+                    <input type="text" id="app_id" name="app_id" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="secret_id">Secret ID:</label>
+                    <input type="password" id="secret_id" name="secret_id" required>
+                </div>
+                
+                <input type="hidden" name="auth_code" value="{{ auth_code }}">
+                <div class="message">
+                    Authorization code received. Click below to complete token generation.
+                </div>
+                
+                <button type="submit">Complete Token Generation</button>
+            </form>
+        {% else %}
+            <!-- Step 1: Start OAuth flow (initial visit) -->
+            <form method="get" action="/login">
+                <div class="form-group">
+                    <label for="app_id">App ID:</label>
+                    <input type="text" id="app_id" name="app_id" required>
+                </div>
+                
+                <button type="submit">Start OAuth Login</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

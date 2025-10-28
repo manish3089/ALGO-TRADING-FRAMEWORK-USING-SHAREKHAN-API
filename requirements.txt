@@ -1,0 +1,42 @@
+# FastAPI & dependencies
+fastapi==0.88.0
+uvicorn==0.20.0
+jinja2==3.1.2
+
+# HTTP requests
+requests==2.28.2
+urllib3==1.26.15
+idna==3.4
+charset-normalizer==3.1.0
+certifi==2022.12.7
+
+# Cryptography
+pycryptodome==3.15.0  # compatible with Python 3.7
+cryptography==39.0.2
+cffi==1.15.1
+pycparser==2.21
+
+# Websockets
+websockets==10.4
+websocket-client==1.5.1
+websocket==0.2.1
+
+# Utilities
+shellescape==3.8.1
+PyYAML==6.0
+six==1.16.0
+
+# Naked CLI tool
+Naked==0.1.32
+
+# Gevent & Zope (used by some frameworks or websocket libraries)
+gevent==22.10.2
+greenlet==2.0.2
+zope.event==4.6
+zope.interface==6.0
+
+# Optional AES package (not needed if using pycryptodome)
+# aes==1.2.0 — REMOVE this if using pycryptodome
+
+# Use this instead of `crypto` (which is outdated and conflicts with `pycryptodome`)
+# crypto==1.4.1 — REMOVE this line
