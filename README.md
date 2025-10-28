@@ -19,18 +19,19 @@ This project integrates with the **Sharekhan API** to fetch historical and live 
 
 ## 🧩 Project Structure
 
-SharekhanApi/ # API handling and integration scripts
-templates/ # Frontend templates (if web interface is used)
-static/ # Static assets
-15min_gold_candles.csv # Sample historical dataset
-15min_keltner.py # Strategy implementation
-Historical_Data.csv # Historical stock data
-Token Gen.ipynb # Notebook for token generation and API testing
-fetch_live_data.py # Fetches real-time data from Sharekhan API
-placeorder.py # Handles live order placement
-setup.py # Project setup script
-requirements.txt # Project dependencies
-README.md # Project documentation
+SharekhanApi/              # API handling and integration scripts
+templates/                 # Frontend templates (if web interface is used)
+static/                    # Static assets
+15min_gold_candles.csv     # Sample historical dataset
+15min_keltner.py           # Strategy implementation
+Historical_Data.csv        # Historical stock data
+Token Gen.ipynb            # Notebook for token generation and API testing
+fetch_live_data.py         # Fetches real-time data from Sharekhan API
+placeorder.py              # Handles live order placement
+setup.py                   # Project setup script
+requirements.txt           # Project dependencies
+README.md                  # Project documentation
+
 
 
 ---
